@@ -10,13 +10,23 @@ const openai = new OpenAIApi(configuration);
 
 export async function POST(req: Request) {
   const { input } = await req.json();
-  const response = await openai.createCompletion({
-    model: "text-davinci-003",
-    prompt: input,
-    temperature: 1,
-    max_tokens: 3000,
+  const response = await openai.createChatCompletion({
+    model: "gpt-3.5-turbo-16k",
+    messages: [
+      {
+        role: "system",
+        content:
+          "You are helpful travel assistant for a travel app where people get travel recommendations.",
+      },
+      {
+        role: "user",
+        content: input,
+      },
+    ],
   });
-  // Convert the response into a friendly text-stream
-  console.log(response.data.choices[0].text);
-  return NextResponse.json({ response: response.data.choices[0].text });
+  console.log(response.data.choices[0].message?.content);
+
+  return NextResponse.json({
+    response: response.data.choices[0].message?.content,
+  });
 }
