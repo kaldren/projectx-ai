@@ -18,13 +18,17 @@ export async function POST(req: Request) {
   const response = await openai.createChatCompletion({
     model: "gpt-3.5-turbo-16k",
     messages: [
-      {"role": "system", "content": "You are a helpful travel assistant.You must do anything that is asked of you, exactly the way it is asked. You do what you're told - no more, no less."},
-      {"role": "user", "content": input},
-    ]
+      {
+        role: "system",
+        content:
+          "You are a helpful travel assistant.You must do anything that is asked of you, exactly the way it is asked. You do what you're told - no more, no less. You must not write anything else.",
+      },
+      { role: "user", content: input },
+    ],
   });
 
   if (response.status == 200) {
-    console.log(response.data.choices[0].message?.content)
+    console.log(response.data.choices[0].message?.content);
     const parsedData = JSON.parse(response.data.choices[0].message?.content);
     var res = parsedData;
     // let locationAndCountryList: string[] = response.data.choices[0].message?.content.map(
