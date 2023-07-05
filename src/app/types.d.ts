@@ -1,4 +1,8 @@
-type Location = {
+interface LocationsResponse {
+  locations: Location[];
+}
+
+interface Location {
   name: string;
   country: string;
   description: string;
@@ -6,11 +10,12 @@ type Location = {
     latitude: number;
     longitude: number;
   };
+  image: string;
   costOfLiving: {
     currency: string;
-    averageDailyCost: number;
-    averageHotelPrice: number;
-    averageMealPrice: number;
+    averageDailyCostUSD: number;
+    averageHotelPriceUSD: number;
+    averageMealPriceUSD: number;
   };
   safety: {
     crimeIndex: number;
@@ -20,18 +25,18 @@ type Location = {
   localCuisine: string[];
   weather: {
     averageTemperature: {
+      spring: number;
       summer: number;
       autumn: number;
       winter: number;
-      spring: number;
     };
     rainyDaysPerMonth: {
+      spring: number;
       summer: number;
       autumn: number;
       winter: number;
-      spring: number;
     };
   };
-  bestTimeToVisit: string[];
-  officialLanguages: string[];
-};
+  bestTimeToVisit: string;
+  languagesSpoken: string[];
+}
