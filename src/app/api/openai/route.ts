@@ -1,5 +1,5 @@
 // {
-//   "input": "Return a JSON object with 5 interesting travel destinations. The JSON object begins with a root key 'locations', which contains an array of every single location inside it. Every entry has several child keys which include 'name', 'country', 'description', 'coordinates', 'image', 'costOfLiving', 'safety', 'touristAttractions', 'localCuisine', 'weather', 'bestTimeToVisit', and 'languagesSpoken'.The 'name' and 'country' keys store the name of the location and its country respectively as string values. The 'description' key stores a string that describes the location.The 'coordinates' key holds an object with 'latitude' and 'longitude' keys, storing the geographical coordinates of the location as number values.The 'image' key is empty. The 'costOfLiving' key holds an object which contains the average costs in the location. This includes 'currency', 'averageDailyCostUSD', 'averageHotelPriceUSD','averageMealPriceUSD', all as string or number values.The 'safety' key has an object with two keys 'crimeIndex' and 'safetyIndex', both are numbers representing safety statistics of the location.The 'touristAttractions' key is an array of objects with top 10 of the best attractions for each place. The 'localCuisine' key is an array of objects with top 10 of local cuisines.The 'weather' key contains an object with 'averageTemperature' and 'rainyDaysPerMonth', both of which are objects that hold number values for different seasons.The 'bestTimeToVisit' key holds a string representing the best months to visit the location as a range, like Jan-Apr, Sept-Dec, for example. The 'officialLanguagesSpoken' key stores a string array with the all the official languages spoken."
+//   "input": "Return a JSON object with 2 interesting travel destinations. The JSON object begins with a root key 'locations', which contains an array of every single location inside it. Every entry has several child keys which include 'name', 'country', 'description', 'coordinates', 'image', 'costOfLiving', 'safety', 'touristAttractions', 'localCuisine', 'weather', 'bestTimeToVisit', and 'languagesSpoken'.The 'name' and 'country' keys store the name of the location and its country respectively as string values. The 'description' key stores a string that describes the location.The 'coordinates' key holds an object with 'latitude' and 'longitude' keys, storing the geographical coordinates of the location as number values.The 'image' key is empty. The 'costOfLiving' key holds an object which contains the average costs in the location. This includes 'currency', 'averageDailyCostUSD', 'averageHotelPriceUSD','averageMealPriceUSD', all as string or number values.The 'safety' key has an object with two keys 'crimeIndex' and 'safetyIndex', both are numbers representing safety statistics of the location.The 'touristAttractions' key is an array of objects with 'name' and 'description' of the top 10 of the best attractions for each place. The description should be short but thorough. The 'localCuisine' key is an array of objects with 'name' and 'description' of the top 10 of local cuisines. The 'weather' key contains an object with 'averageTemperature' and 'rainyDaysPerMonth', both of which are objects that hold number values for different seasons.The 'bestTimeToVisit' key holds a string representing the best months to visit the location as a range, like Jan-Apr, Sept-Dec, for example. The 'officialLanguagesSpoken' key stores a string array with the all the official languages spoken."
 // }
 
 
@@ -16,25 +16,13 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration);
+const input = "Return a JSON object with 2 interesting travel destinations. The JSON object begins with a root key 'locations', which contains an array of every single location inside it. Every entry has several child keys which include 'name', 'country', 'description', 'coordinates', 'image', 'costOfLiving', 'safety', 'touristAttractions', 'localCuisine', 'weather', 'bestTimeToVisit', and 'languagesSpoken'.The 'name' and 'country' keys store the name of the location and its country respectively as string values. The 'description' key stores a string that describes the location.The 'coordinates' key holds an object with 'latitude' and 'longitude' keys, storing the geographical coordinates of the location as number values.The 'image' key is empty. The 'costOfLiving' key holds an object which contains the average costs in the location. This includes 'currency', 'averageDailyCostUSD', 'averageHotelPriceUSD','averageMealPriceUSD', all as string or number values.The 'safety' key has an object with two keys 'crimeIndex' and 'safetyIndex', both are numbers representing safety statistics of the location.The 'touristAttractions' key is an array of objects with 'name' and 'description' of the top 10 of the best attractions for each place. The description should be short but thorough. The 'localCuisine' key is an array of objects with 'name' and 'description' of the top 10 of local cuisines. The 'weather' key contains an object with 'averageTemperature' and 'rainyDaysPerMonth', both of which are objects that hold number values for different seasons.The 'bestTimeToVisit' key holds a string representing the best months to visit the location as a range, like Jan-Apr, Sept-Dec, for example. The 'officialLanguagesSpoken' key stores a string array with the all the official languages spoken.";
 
-export async function POST(req: Request) {
-  const { input } = await req.json();
+export async function GET() {
   let locationsResponse: LocationsResponse;
   let openAiService = new OpenAIService();
 
   locationsResponse = await openAiService.createChatCompletion(input, 16000);
-
-  // const response = await openai.createChatCompletion({
-  //   model: "gpt-3.5-turbo-16k",
-  //   messages: [
-  //     {
-  //       role: "system",
-  //       content:
-  //         "You are a helpful travel assistant.You must do anything that is asked of you, exactly the way it is asked. You do what you're told - no more, no less. You must not write anything else.",
-  //     },
-  //     { role: "user", content: input },
-  //   ],
-  // });
 
   if (locationsResponse != null) {
 
