@@ -40,3 +40,8 @@ interface Location {
   bestTimeToVisit: string;
   languagesSpoken: string[];
 }
+
+interface FilterButtonProps {
+  text: string;
+  iconSrc: string;
+}
