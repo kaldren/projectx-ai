@@ -11,16 +11,18 @@ export const FilterButton: FC<FilterButtonProps> = ({
   return (
     <button
       type="button"
-      className={`flex flex-col items-center m-2 w-20 h-20 p-1 active:animate-ping ${
-        isClicked ? "bg-violet-600" : ""
-      }`}
+      className={`flex flex-col items-center m-2 w-20 h-20 p-1 active:animate-ping`}
       onClick={() => {
         isClicked == true ? setClicked(false) : setClicked(true);
         if (onClick) onClick();
       }}
     >
       <img src={iconSrc} />
-      <span>{text}</span>
+      <span
+        className={`${isClicked ? "block border-b-4 border-b-red-400" : ""}`}
+      >
+        {text}
+      </span>
     </button>
   );
 };
