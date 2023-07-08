@@ -41,8 +41,9 @@ interface Location {
   languagesSpoken: string[];
 }
 
-interface FilterButtonProps {
+interface FancyButtonProps {
   text: string;
   iconSrc: string;
+  className?: string;
   onClick?: () => void;
 }
