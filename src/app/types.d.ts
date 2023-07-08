@@ -44,4 +44,5 @@ interface Location {
 interface FilterButtonProps {
   text: string;
   iconSrc: string;
+  onClick?: () => void;
 }
