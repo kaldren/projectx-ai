@@ -48,6 +48,26 @@ export default function FiltersContainer() {
       <FancyButton text="SKIING" iconSrc="icons/icons8-ski.svg" />
       <FancyButton text="HIKING" iconSrc="icons/icons8-hiking.svg" />
       <FancyButton text="CAMPING" iconSrc="icons/icons8-camping.svg" />
+
+      <FancyButton text="Accessibility" iconSrc="icons/icons8-accessibility-48.svg" />
+      <FancyButton text="Language" iconSrc="icons/icons8-language.svg" />
+      <FancyButton text="Family Friendly" iconSrc="icons/icons8-family.svg" />
+      <FancyButton text="Pet Friendly" iconSrc="icons/icons8-pet-friendly.svg" />
+      <FancyButton text="Romantic" iconSrc="icons/icons8-romantic.svg" />
+      <FancyButton text="Solo Traveler Friendly" iconSrc="icons/icons8-traveler.svg" />
+      <FancyButton text="Luxury" iconSrc="icons/icons8-luxury.svg" />
+      <FancyButton text="Art and Museums" iconSrc="icons/icons8-dailyart.svg" />
+      <FancyButton text="Music Festivals" iconSrc="icons/icons8-music-band.svg" />
+      <FancyButton text="Spa/Wellness" iconSrc="icons/icons8-spa.svg" />
+      <FancyButton text="Education" iconSrc="icons/icons8-education.svg" />
+      <FancyButton text="Volunteering" iconSrc="icons/icons8-volunteering.svg" />
+      <FancyButton text="Sports" iconSrc="icons/icons8-strength.svg" />
+      <FancyButton text="Photography" iconSrc="icons/icons8-photography.svg" />
+      <FancyButton text="LGBTQ+ Friendly" iconSrc="icons/icons8-heart.svg" />
+      <FancyButton text="Winery/Brewery Tours" iconSrc="icons/icons8-brewery.svg" />
+      <FancyButton text="Disability Access" iconSrc="icons/icons8-disabled-access.svg" />
+
+      
       <FancyButton text="CHEAP" iconSrc="icons/icons8-low-price.svg" />
       <FancyButton text="MODERATE" iconSrc="icons/icons8-cash.svg" />
       <FancyButton
